@@ -4,7 +4,7 @@ import { AuthDto } from './dto/auth.dto';
 @Controller('user')
 export class AuthController {
   @Post('register')
-  async register() {
+  async register(): Promise<any> {
     return 'Созданный пользователь';
   }
 

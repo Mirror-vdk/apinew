@@ -1,6 +1,6 @@
 import { Controller, Post } from '@nestjs/common';
 
-@Controller()
+@Controller('users')
 export class UsersController {
   @Post('create')
   async createUser(): Promise<any> {

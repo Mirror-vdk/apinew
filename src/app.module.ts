@@ -1,23 +1,13 @@
-import { Module } from "@nestjs/common";
-import { AppController } from "./app.controller";
-import { AppService } from "./app.service";
-import { AuthModule } from "./auth/auth.module";
-import { TopPageModule } from "./top-page/top-page.module";
-import { ProductModule } from "./product/product.module";
-import { ReviewModule } from "./review/review.module";
-import { TypeOrmModule } from "@nestjs/typeorm";
-import { UsersModule } from "./users/users.module";
-import ormconfig from "./ormconfig";
+import { Module } from '@nestjs/common';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+import { AuthModule } from './auth/auth.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import ormconfig from './ormconfig';
+import { UsersModule } from './users/users.module';
 
 @Module({
-  imports: [
-    AuthModule,
-    TopPageModule,
-    ProductModule,
-    ReviewModule,
-    UsersModule,
-    TypeOrmModule.forRoot(ormconfig),
-  ],
+  imports: [TypeOrmModule.forRoot(ormconfig), AuthModule, UsersModule],
   controllers: [AppController],
   providers: [AppService],
 })
