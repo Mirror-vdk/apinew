@@ -8,7 +8,11 @@ const config: ConnectionOptions = {
   password: 'devu',
   database: 'apinew',
   entities: [__dirname + '/**/*.model{.ts,.js}'],
-  synchronize: true,
+  synchronize: false,
+  migrations: [__dirname + '/migrations/**/*{.ts,.js}'],
+  cli: {
+    migrationsDir: 'src/migrations',
+  },
 };
 
 export default config;

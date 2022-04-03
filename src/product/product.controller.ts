@@ -15,10 +15,13 @@ import { FindProductDto } from './dto/find-product.dto';
 export class ProductController {
 
   @Post('create')
-  async create(@Body() dto: Omit<ProductModel, '_id'>) {}
+  async create(@Body() dto: Omit<ProductModel, '_id'>) {
+
+  }
 
   @Get(':id')
-  async get(@Param('id') id: string) {}
+  async get(@Param('id') id: string) {
+  }
 
   @Delete(':id')
   async delete(@Param('id') id: string) {
