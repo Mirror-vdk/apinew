@@ -7,7 +7,7 @@ const config: ConnectionOptions = {
   username: 'devu',
   password: 'devu',
   database: 'apinew',
-  entities: [__dirname + '/**/*.model{.ts,.js}'],
+  entities: [__dirname + '/**/*.entity{.ts,.js}'],
   synchronize: false,
   migrations: [__dirname + '/migrations/**/*{.ts,.js}'],
   cli: {
