@@ -14,7 +14,7 @@ export class ArticleService {
   constructor(
     @InjectRepository(ArticleEntity)
     private readonly articleRepository: Repository<ArticleEntity>,
-    @InjectRepository(ArticleEntity)
+    @InjectRepository(UsersEntity)
     private readonly userRepository: Repository<UsersEntity>,
   ) {}
   async findAll(
@@ -28,6 +28,11 @@ export class ArticleService {
     queryBuilder.orderBy('article.createdAt', 'DESC');
     const articlesCount = await queryBuilder.getCount();
 
+    if (query.tag) {
+      queryBuilder.andWhere('article.tagList LIKE :tag', {
+        tag: `%${query.tag}%`,
+      });
+    }
     if (query.author) {
       const author = await this.userRepository.findOne({
         username: query.author,
